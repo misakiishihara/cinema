@@ -1,7 +1,6 @@
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
+import Layout from '../components/Layout';
 
 const IndexPage = () => {
   const [movies, setMovies] = useState([]);
@@ -43,7 +42,8 @@ const IndexPage = () => {
 
   return (
     <div>
-      <h1>映画おすすめサイト</h1>
+      <Layout />
+      <p>Tell me your mood</p>
       <button onClick={() => fetchMovies('28','35','14')}>Happy</button>
       <button onClick={() => fetchMovies('18','10751')}>Sad</button>
       <button onClick={() => fetchMovies('12','27','53')}>Excited</button>
@@ -52,7 +52,7 @@ const IndexPage = () => {
         {movies.map((movie) => (
           <div key={movie.id}>
             <h2>{movie.title}</h2>
-            <p>{movie.overview}</p>
+            <p className='bg-gray'>{movie.overview}</p>
             <a
               href={`https://www.themoviedb.org/movie/${movie.id}`}
               target="_blank"
