@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Layout from '../components/Layout';
 
+const apikey = process.env.NEXT_PUBLIC_TMDB_API_KEY
+
 const IndexPage = () => {
   const [movies, setMovies] = useState([]);
 
@@ -14,7 +16,7 @@ const IndexPage = () => {
 
       for (let page = 1; page <= totalPages; page++) {
         const response = axios.get(
-          `https://api.themoviedb.org/3/discover/movie?api_key=d4a2b9fed55b0afbf4684b3e3a6f3e8b&language=ja-JP&sort_by=popularity.desc&with_genres=${mood}&page=${page}&vote_average.gte=${minVoteAverage}`
+          `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=ja-JP&sort_by=popularity.desc&with_genres=${mood}&page=${page}&vote_average.gte=${minVoteAverage}`
         );
         promises.push(response);
       }
@@ -52,7 +54,7 @@ const IndexPage = () => {
         {movies.map((movie) => (
           <div key={movie.id}>
             <h2>{movie.title}</h2>
-            <p className='bg-gray'>{movie.overview}</p>
+            <p>{movie.overview}</p>
             <a
               href={`https://www.themoviedb.org/movie/${movie.id}`}
               target="_blank"

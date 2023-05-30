@@ -2,7 +2,7 @@ function Layout({ children }) {
     return (
         <>
             <header className="container w-full bg-gray-500">
-                <h1>Cinemabar</h1>
+                <h1 className="flex justify-center">Cinemabar</h1>
                 <p>
                     あなたの気分によって映画を紹介します。<br/>
                     TMDB(https://www.themoviedb.org/)のデータを使用しています。<br/>
