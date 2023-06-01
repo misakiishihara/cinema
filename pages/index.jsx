@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Layout from '../components/Layout';
-
+import Footer from '../components/Footer'
 const apikey = process.env.NEXT_PUBLIC_TMDB_API_KEY
 
 const IndexPage = () => {
@@ -45,11 +45,13 @@ const IndexPage = () => {
   return (
     <div>
       <Layout />
-      <p>Tell me your mood</p>
-      <button onClick={() => fetchMovies('28','35','14')}>Happy</button>
-      <button onClick={() => fetchMovies('18','10751')}>Sad</button>
-      <button onClick={() => fetchMovies('12','27','53')}>Excited</button>
-      <button onClick={() => fetchMovies('10749')}>Love</button>
+      <p className='text-3xl flex justify-center py-5'>Tell me your mood</p>
+      <div className='flex justify-between mx-10 text-2xl'>
+        <button onClick={() => fetchMovies('28','35','14')}>Happy</button>
+        <button onClick={() => fetchMovies('18','10751')}>Sad</button>
+        <button onClick={() => fetchMovies('12','27','53')}>Excited</button>
+        <button onClick={() => fetchMovies('10749')}>Love</button>
+      </div>
       <div>
         {movies.map((movie) => (
           <div key={movie.id}>
@@ -69,8 +71,9 @@ const IndexPage = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };
 
-export default IndexPage;
+export default IndexPage; 
