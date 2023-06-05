@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Layout from '../components/Layout';
-import Footer from '../components/Footer'
+import Layout from '../../components/Layout';
+import Footer from '../../components/Footer'
 const apikey = process.env.NEXT_PUBLIC_TMDB_API_KEY
 
 const IndexPage = () => {

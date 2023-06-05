@@ -2,9 +2,10 @@ FROM node:17.6.0
 
 WORKDIR /app
 
+
 COPY ./package.json ./
 
-RUN npm install -g npm@latest && npm install create-next-app
+RUN npm install && npm run build
 
 EXPOSE 3000
 
